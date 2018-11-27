@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <style>
+
+       html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      height: 200px;
+      background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      }
+
+    textarea {
+      position: absolute;
+      background: transparent;
+      top: 50%;
+      left: 0;
+      right: 0;
+      outline: 0;
+      width: 100%;
+      height: 50%;
+      border: 0;
+      padding: 16px;
+      font: 16px Consolas;
+      max-width: 600px;
+      margin: auto;
+      background: linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
+      box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    }
+
+    </style>
+    <canvas id="myCanvas"></canvas>
+    <textarea id="textarea">Пример</textarea>
+    <script>
+    (function() {
+      function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var words = text.split(' ');
+        var line = '';
+
+        context.font = '50px Myshkin';
+        context.fillStyle = '#333';
+
+        for(var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > maxWidth && n > 0) {
+            context.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          }
+          else {
+            line = testLine;
+          }
+        }
+
+        context.fillText(line, x, y);
+      }
+      
+      var canvas = document.getElementById('myCanvas');
+      var input = document.getElementById('textarea');
+      var context = canvas.getContext('2d');
+      var maxWidth = 400;
+      var lineHeight = 25;
+      var text = '';
+
+      function onResize() {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight / 2;
+
+        maxWidth = Math.min(innerWidth, 600);
+      }
+
+      function onInput() {
+        text = input.value;
+        wrapText(context, text, (canvas.width - maxWidth) / 2, 60, maxWidth, lineHeight);
+      }
+
+      document.addEventListener("input", onInput);
+      addEventListener("resize", onResize);
+      addEventListener("resize", onInput);
+      onResize();onInput()
+    })();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+<style>
+canvas{
+    border: 3px black solid;
+}
+#textCanvas{
+    display: none;
+    width: 100%;
+    height: 100%;
+    border: solid 1px black;
+}
+
+textarea {font:normal 51px 'RalewayRegular'; color:#050405;} 
+
+
+@font-face {
+font-family: "RalewayRegular"; 
+src: url("Myshkin.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+} 
+</style>
+
+
+<script>
+var ctx = myCanvas.getContext("2d");
+
+myCanvas.onclick = function() {
+  var dataURL = myCanvas.toDataURL("image/jpeg");
+  var link = document.createElement("a");
+  document.body.appendChild(link); // Firefox requires the link to be in the body :(
+  link.href = dataURL;
+  link.download = "myshkin.jpg";
+  link.click();
+  document.body.removeChild(link);
+};
+</script>
+
