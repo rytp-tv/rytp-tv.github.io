@@ -1,0 +1,41 @@
+<canvas id='textCanvas' height=60></canvas>
+<img id='image'>
+<br>
+<textarea id='text'></textarea>
+
+
+
+
+<script>
+var tCtx = document.getElementById('textCanvas').getContext('2d'),
+    imageElem = document.getElementById('image');
+
+document.getElementById('text').addEventListener('keyup', function (){
+    tCtx.canvas.width = tCtx.measureText(this.value).width;
+    tCtx.fillText(this.value, 0, 30);
+    imageElem.src = tCtx.canvas.toDataURL();
+    console.log(imageElem.src);
+}, false);
+</script>
+
+
+
+
+<style>
+canvas{
+    border: 1px black solid;
+}
+#textCanvas{
+    display: none;
+}
+
+textarea {font:normal 51px 'RalewayRegular'; color:#A1A1A1;} 
+
+
+@font-face {
+font-family: "RalewayRegular"; 
+src: url("Myshkin.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+} 
+</style>
