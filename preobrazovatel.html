@@ -36,7 +36,7 @@
 
     </style>
     <canvas id="myCanvas"></canvas>
-    <textarea id="textarea">Пример</textarea>
+    <textarea id="textarea">ГЏГ°ГЁГ¬ГҐГ°</textarea>
     <script>
     (function() {
       function wrapText(context, text, x, y, maxWidth, lineHeight) {
@@ -124,11 +124,11 @@ font-weight: normal;
 var ctx = myCanvas.getContext("2d");
 
 myCanvas.onclick = function() {
-  var dataURL = myCanvas.toDataURL("image/jpeg");
+  var dataURL = myCanvas.toDataURL("image/png");
   var link = document.createElement("a");
   document.body.appendChild(link); // Firefox requires the link to be in the body :(
   link.href = dataURL;
-  link.download = "myshkin.jpg";
+  link.download = "myshkin.png";
   link.click();
   document.body.removeChild(link);
 };
