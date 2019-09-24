@@ -1,6 +1,6 @@
 ﻿{
-	"name": "Multiplayer chat example",
-	"short_name": "Multiplayer chat example",
+	"name": "Faity Patrol Chat",
+	"short_name": "Faity Patrol Chat",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "any",
