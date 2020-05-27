@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1590237190
+#1590580087
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -8,6 +8,7 @@ icon-32.png
 icon-114.png
 icon-128.png
 icon-256.png
+loading-logo.png
 jquery.gritter.js
 jquery.gritter.css
 NETWORK:

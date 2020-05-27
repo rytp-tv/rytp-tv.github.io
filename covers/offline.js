@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1590237190,
+	"version": 1590580087,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,6 +9,7 @@
 		"icon-114.png",
 		"icon-128.png",
 		"icon-256.png",
+		"loading-logo.png",
 		"jquery.gritter.js",
 		"jquery.gritter.css"
 	]
