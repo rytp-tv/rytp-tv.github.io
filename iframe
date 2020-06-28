@@ -1,0 +1,7 @@
+<script> 
+document.write(document.referrer);  
+var url = (window.location != window.parent.location) ? document.referrer : document.location.href; 
+document.body.innerHTML+="<br />";
+document.body.innerHTML+= url; 
+//document.write(document.location.ancestorOrigins[0]); 
+</script>
