@@ -20,7 +20,7 @@ const config = defineConfig({
     //   const pack = await import("next-tinacms-cloudinary");
     //   return pack.TinaCloudCloudinaryMediaStore;
     // },
-    // this is the config for the tina cloud media store
+    // this is the config for the tina cloud media store.
     tina: {
       publicFolder: "public",
       mediaRoot: "uploads",
